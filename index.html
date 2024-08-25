@@ -43,5 +43,31 @@
             }
         });
     </script>
+    <main>
+    <section class="forum-posts">
+        <h2>Recent Posts</h2>
+        <ul id="post-list">
+            <!-- Post listesi burada gösterilecek -->
+        </ul>
+    </section>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const postList = document.getElementById('post-list');
+        
+        // Post dosyalarının isimlerini buraya manuel olarak ekleyebilirsiniz
+        const posts = ['post1.md', 'post2.md']; // örnek
+
+        posts.forEach(post => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `?post=${post}`;
+            link.textContent = post.replace('.md', '');
+            listItem.appendChild(link);
+            postList.appendChild(listItem);
+        });
+    });
+</script>
 </body>
 </html>
